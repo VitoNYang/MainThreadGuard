@@ -45,7 +45,8 @@ public extension UIView {
         "setNeedsLayout": "guard_setNeedsLayout",
         "setNeedsDisplay": "guard_setNeedsDisplay",
         "setNeedsDisplayInRect:": "guard_setNeedsDisplayInRect:",
-        "setNeedsUpdateConstraints": "guard_setNeedsUpdateConstraints"
+        "setNeedsUpdateConstraints": "guard_setNeedsUpdateConstraints",
+        "updateConstraintsIfNeeded" : "guard_updateConstraintsIfNeeded"
       ]
 
       pairs.forEach { (key, value) in
@@ -59,6 +60,11 @@ public extension UIView {
     func guard_setNeedsUpdateConstraints(){
         guard_check()
         guard_setNeedsUpdateConstraints()
+    }
+    
+    func guard_updateConstraintsIfNeeded(){
+        guard_check()
+        guard_updateConstraintsIfNeeded()
     }
     
   func guard_setNeedsLayout() {
