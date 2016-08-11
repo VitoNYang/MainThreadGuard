@@ -44,7 +44,8 @@ public extension UIView {
       let pairs = [
         "setNeedsLayout": "guard_setNeedsLayout",
         "setNeedsDisplay": "guard_setNeedsDisplay",
-        "setNeedsDisplayInRect:": "guard_setNeedsDisplayInRect:"
+        "setNeedsDisplayInRect:": "guard_setNeedsDisplayInRect:",
+        "setNeedsUpdateConstraints": "guard_setNeedsUpdateConstraints"
       ]
 
       pairs.forEach { (key, value) in
@@ -55,6 +56,11 @@ public extension UIView {
 
   // MARK: Method Swizzling
 
+    func guard_setNeedsUpdateConstraints(){
+        guard_check()
+        guard_setNeedsUpdateConstraints()
+    }
+    
   func guard_setNeedsLayout() {
     guard_check()
     guard_setNeedsLayout()
